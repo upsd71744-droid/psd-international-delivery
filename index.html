@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UPSD International Delivery | Demo Tracking</title>
+<style>
+:root{--navy:#10263f;--blue:#174b78;--gold:#e8a72d;--ink:#182536;--muted:#667587;--line:#dce3ea;--bg:#f3f6f9}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font:16px/1.5 Arial,Helvetica,sans-serif;color:var(--ink)}
+.demo{background:#fff1cc;color:#654600;text-align:center;padding:10px 14px;font-weight:700;font-size:13px;letter-spacing:.04em}
+header{background:var(--navy);color:white;padding:22px max(20px,calc((100% - 1080px)/2));display:flex;align-items:center;gap:14px}
+.mark{width:48px;height:48px;border:2px solid var(--gold);border-radius:10px;display:grid;place-items:center;color:var(--gold);font-weight:900;font-size:20px}header strong{display:block;font-size:19px;letter-spacing:.02em}header small{color:#c5d3e1}
+main{max-width:920px;margin:34px auto;padding:0 18px}.hero{text-align:center;margin-bottom:24px}.hero h1{font-size:clamp(27px,5vw,39px);margin:0 0 8px;color:var(--navy)}.hero p{margin:0;color:var(--muted)}
+.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:clamp(20px,4vw,32px);box-shadow:0 8px 28px #10263f0b}.panel h2{margin:0 0 7px;color:var(--navy);font-size:22px}.hint{color:var(--muted);margin:0 0 20px;font-size:14px}
+label{display:block;font-weight:700;font-size:14px;margin:0 0 7px}input,select{width:100%;padding:13px 14px;border:1px solid #cbd5df;border-radius:9px;font-size:16px;background:#fff;color:var(--ink)}input:focus,select:focus{outline:3px solid #d9eafa;border-color:var(--blue)}.field{margin-bottom:16px}.btn{border:0;border-radius:9px;background:var(--gold);color:#1e2a36;font-weight:800;font-size:16px;padding:14px 20px;width:100%;cursor:pointer}.btn:hover{filter:brightness(.97)}
+#result{display:none;margin-top:22px}.result-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:16px}.pill{background:#fff1cc;color:#654600;padding:6px 10px;border-radius:30px;font-size:12px;font-weight:800}.route{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}.route div{background:#f6f8fa;padding:14px;border-radius:10px}.route small{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.06em}.route b{display:block;margin-top:5px}.timeline{border-left:2px solid #d5dee7;margin:18px 0 0 8px;padding-left:20px}.event{position:relative;margin:0 0 19px}.event:before{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:var(--gold);left:-26px;top:6px}.event b{display:block}.event small{color:var(--muted)}.notice{margin-top:22px;background:#fff8e8;border:1px solid #f0dcae;padding:14px;border-radius:10px;color:#654600;font-size:13px}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:26px 18px 40px}.error{display:none;color:#a32929;margin:12px 0 0;font-size:14px}
+@media(max-width:560px){header{padding:18px}.route{grid-template-columns:1fr}}
+</style></head>
+<body>
+<div class="demo">DEMO ONLY — SIMULATED TRACKING INFORMATION — NOT A REAL SHIPMENT</div>
+<header><div class="mark">U</div><div><strong>UPSD INTERNATIONAL DELIVERY</strong><small>Independent logistics demonstration service</small></div></header>
+<main>
+<section class="hero"><h1>Track a Demonstration Shipment</h1><p>Enter the sample tracking code below to view a simulated tracking record.</p></section>
+<section class="panel">
+<h2>Shipment Tracking</h2><p class="hint">This public demonstration uses fictional sample information. It is not connected to UPS or any carrier.</p>
+<div class="field"><label for="code">Demonstration tracking code</label><input id="code" value="UPSD-DEMO-2026-0001" autocomplete="off" placeholder="Enter demo tracking code"></div>
+<div class="field"><label for="originCountry">Origin country</label><select id="originCountry"><option>United States</option><option>Nigeria</option><option>Canada</option><option>Mexico</option><option>United Kingdom</option><option>Spain</option><option>France</option><option>Brazil</option><option>Colombia</option><option>Ecuador</option><option>Panama</option><option>Ghana</option></select></div>
+<div class="field"><label for="originCity">Origin city</label><input id="originCity" value="Jacksonville" placeholder="Enter origin city"></div>
+<div class="field"><label for="destCountry">Destination country</label><select id="destCountry"><option>Ecuador</option><option>United States</option><option>Nigeria</option><option>Canada</option><option>Mexico</option><option>United Kingdom</option><option>Spain</option><option>France</option><option>Brazil</option><option>Colombia</option><option>Panama</option><option>Ghana</option></select></div>
+<div class="field"><label for="destCity">Destination city</label><input id="destCity" value="Guayaquil" placeholder="Enter destination city"></div>
+<div class="field"><label for="language">Display language</label><select id="language"><option value="en">English</option><option value="es">Español</option><option value="fr">Français</option><option value="pt">Português</option></select></div>
+<button class="btn" id="track">View demonstration result</button><p class="error" id="error">That sample code was not found. Try UPSD-DEMO-2026-0001.</p>
+<div id="result" aria-live="polite"><div class="result-head"><div><b>Tracking code</b><div id="shownCode"></div></div><span class="pill">SIMULATED RECORD</span></div>
+<div class="route"><div><small>Sample origin</small><b id="shownOrigin"></b></div><div><small>Sample destination</small><b id="shownDest"></b></div></div>
+<h3>Demonstration history</h3><div class="timeline"><div class="event"><b>Sample tracking record created</b><small>Illustrative event — not a carrier scan</small></div><div class="event"><b>Dispatch not verified</b><small>No real shipment acceptance or dispatch confirmation</small></div><div class="event"><b>No live location available</b><small>This demo does not use GPS or carrier tracking data</small></div></div>
+<div class="notice"><b>Important:</b> This is a fictional demonstration record only. No parcel movement, carrier acceptance, delivery date, or real-time location is being reported. UPSD is not affiliated with or endorsed by UPS.</div>
+</div>
+</section></main>
+<footer>UPSD International Delivery · Independent demonstration website<br>Demo information only. No real shipment tracking is provided.</footer>
+<script>
+const translations={en:{title:'Track a Demonstration Shipment',desc:'Enter the sample tracking code below to view a simulated tracking record.',button:'View demonstration result'},es:{title:'Rastrear un envío de demostración',desc:'Ingrese el código de muestra para ver un registro simulado.',button:'Ver resultado de demostración'},fr:{title:'Suivre un envoi de démonstration',desc:'Saisissez le code exemple pour afficher un suivi simulé.',button:'Voir le résultat de démonstration'},pt:{title:'Rastrear um envio de demonstração',desc:'Digite o código de exemplo para ver um registro simulado.',button:'Ver resultado de demonstração'}};
+document.getElementById('language').addEventListener('change',e=>{const t=translations[e.target.value];document.querySelector('.hero h1').textContent=t.title;document.querySelector('.hero p').textContent=t.desc;document.getElementById('track').textContent=t.button;});
+document.getElementById('track').addEventListener('click',()=>{const code=document.getElementById('code').value.trim();const ok=code.toUpperCase()==='UPSD-DEMO-2026-0001';document.getElementById('error').style.display=ok?'none':'block';document.getElementById('result').style.display=ok?'block':'none';if(ok){document.getElementById('shownCode').textContent=code;document.getElementById('shownOrigin').textContent=document.getElementById('originCity').value+', '+document.getElementById('originCountry').value;document.getElementById('shownDest').textContent=document.getElementById('destCity').value+', '+document.getElementById('destCountry').value;document.getElementById('result').scrollIntoView({behavior:'smooth',block:'start'});}});
+</script></body></html>
